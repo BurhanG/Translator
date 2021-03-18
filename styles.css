@@ -1,0 +1,286 @@
+/* import Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+
+/* Base */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+:root {
+    --light-clr: #fff;
+    --dark-clr: #333;
+    --brand-clr: #330000;
+    --general-font-size: 1.6rem;
+    --translate-font-size: 2rem;
+    --main-font-family: 'Roboto', sans-serif;
+    --font-light: 300;
+    --font-medium: 400;
+    --font-bold: 700;
+    --container-width: 126rem;
+}
+
+body {
+    font-family: var(--main-font-family);
+    font-size: var(--general-font-size);
+    font-weight: var(--font-medium);
+    background: var(--light-clr);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* Header */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 12px 6px;
+}
+
+.header-btn-left,
+.header-btn-right {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.logo {
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 3rem;
+    color: var(--brand-clr);
+}
+
+
+/* Container */
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+.card {
+    box-shadow: 0 2px 6px rgb(0 0 0 / 6%);
+    margin: 10px 8px;
+    border-radius: 8px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    border-bottom: 1px solid #ccc;
+}
+
+.card-lang-select {
+    margin: 0 6px;
+}
+
+.card-swap-btn {
+    height: 44px;
+    width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-form {
+    width: 100%;
+}
+
+.card-textarea {
+    width: 100%;
+    height: 100%;
+    min-height: 80px;
+    border: none;
+    color: var(--dark-clr);
+    font-size: 1.5rem;
+}
+
+.card-textarea:focus {
+    outline: none;
+}
+
+
+/* translated */
+
+.translated {
+    margin: 10px 8px;
+    overflow: hidden;
+}
+
+.translated-source {
+    padding: 10px 0;
+}
+
+.translated-body {
+    background: #f2f3f4;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 6%);
+}
+
+.translated-text {
+    min-height: 50px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.translated-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 4px 6px;
+}
+
+.translated-copy-icon,
+.translated-save-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    width: 36px;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+
+/* Saved Text */
+
+.saved-text {
+    padding: 10px;
+}
+
+.saved-text-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.saved-text-header-text {
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    padding: 5px;
+    color: var(--brand-clr);
+    margin-bottom: 10px;
+}
+
+.saved-text-delete-btn {
+    padding: 3px 13px;
+    background: #f81515;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.saved-card-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.saved-card {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #f2f3f4;
+    margin: 5px;
+}
+
+
+/* Notification */
+
+.notification {
+    min-height: 40px;
+    min-width: 80px;
+    border: 1px solid var(--brand-clr);
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background: #fff;
+    transition: all 1s;
+    padding: 10px;
+    overflow: hidden;
+    /* transform: translateX(calc(100% + 25px)); */
+    display: none;
+    opacity: 0;
+}
+
+.notification.visible {
+    display: flex;
+    animation: show_slide 1s ease forwards;
+    opacity: 1;
+}
+
+@keyframes show_slide {
+    0% {
+        transform: translateX(100%);
+    }
+    40% {
+        transform: translateX(-10%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+    /* 100% {
+        transform: translateX(-10px);
+    } */
+}
+
+
+/* .visible {
+    transform: translateX(0);
+} */
+
+@media only screen and (min-width:500px) {
+    .notification {
+        width: 290px;
+    }
+}
+
+@media only screen and (min-width:680px) {
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .card,
+    .translated-container {
+        flex: 0 0 45%;
+    }
+    .saved-text {
+        width: 90%;
+    }
+}
